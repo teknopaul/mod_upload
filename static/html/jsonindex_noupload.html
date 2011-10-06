@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+	<title>JSON Indexes</title>
+	<link rel="stylesheet" type="text/css" href="/res/css/style.css" >
+</head>
+<script type="text/javascript" src="/res/js/jquery-1.3.2.js"></script>
+<script type="text/javascript" src="/res/js/httpd.jsonindexes-1.0.js"></script>
+<script type="text/javascript">
+	var basedir = httpd.validate(document.location.pathname);
+</script>
+<body class="jsonindexes">
+<div id="container">
+	<div id="header">
+		<table class="frame"><tr>
+		<td id="head-left">
+			<h4>JSON Indexes</h4>
+		</td>
+		<td id="head-middle">&nbsp;</td>
+		<td id="head-right">&nbsp;</td>
+		</tr></table>
+	</div>
+	<div id="content">
+		<div id="menu">
+			<!-- main menu -->
+<ul>
+	<li><a href="/">Root</a></li>
+	<li><a class="help-link" href="#">
+		<span class="tooltip">
+		Click on a directory to expand (and select) it,<br/>
+		To enter the directory right click and select<br/>
+		<i>Open in a new tab</i>
+		</span>
+		Directories</a>
+	</li>
+	<li><a class="help-link" href="#">
+		<span class="tooltip">
+		Download a file by right mouse clicking <br/>
+		and selecting </i>Save link as</i>.
+		</span>Download</a></li>
+</ul>
+		</div>
+		<div id="main">
+
+			<div id="filesystem" class="filesystem">
+				<span id="back"><a href=".."><img src="/res/mime/back.png"/></a></span><span id="root"><img id="root-img" src="/res/mime/folder.png"/></span>
+			</div>
+<script type="text/javascript">
+var root = new httpd.Directory(jQuery('#root'), basedir);
+root.init(basedir);
+jQuery('#root-img').after(basedir);
+</script>
+
+		</div>
+	</div>
+	<div id="footer">
+		<table class="frame"><tr>
+		<td id="foot-left">&nbsp;</td>
+		<td id="foot-middle">Copyleft JSON Indexes</td>
+		<td id="foot-right">&nbsp;</td>
+		</tr></table>
+	</div>
+</div>
+</body>
+</html>

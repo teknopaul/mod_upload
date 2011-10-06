@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title>upload</title>
+	<link rel="stylesheet" type="text/css" href="/res/css/style.css" >
+	<script type="text/javascript" src="/res/js/jquery-1.3.2.js"></script>
+	<script type="text/javascript" src="/res/js/httpd.jsonindexes-1.0.js"></script>
+</head>
+<body id="upload-page">
+	<form id="upload-form" method="post" action="file.upload" 
+		enctype="multipart/form-data"
+		onsubmit="httpd.renderUploading()">
+	<input name="file" type="file"></input>
+	<input type="submit" name="submit" value="Upload"></input>
+	</form>
+	<script type="text/javascript">
+		// TODO informative error handling
+		var href = window.location.search;
+		var paramValue = href.split('?')[1].split('=');
+		if (paramValue[0] == 'basedir') {
+			var basedir = paramValue[1];
+			jQuery('#upload-form')[0].action = httpd.validate(basedir) + 'file.upload';
+		}
+		else {
+			jQuery('#upload-form')[0].action = '#';
+		}
+	</script>
+</body>
+</html>
