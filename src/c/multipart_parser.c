@@ -59,8 +59,8 @@ static void extract_filename(parse_ctx *ctx) {
           char *field_name = name_idx; // TODO take copy "apr_pstrndup()" and pass to handler
           nxt = end_idx;
           *end_idx = 0 ;
-// fprintf(stdout,  "field_name [%s]\n", field_name);
-          if ( ! strcmp(field_name, "file") ) { // TODO configurable
+ fprintf(stdout,  "field_name [%s]\n", field_name);
+          if ( ! strcmp(field_name, "files[]") ) { // TODO configurable
             ctx->reading_file = 1;
             // get the name of the uploaded file
             nxt++;;
@@ -70,7 +70,7 @@ static void extract_filename(parse_ctx *ctx) {
               end_idx = strchr(filename_idx, '"') ;
               if ( end_idx ) {
                 memcpy ( ctx->file_name, filename_idx, end_idx - filename_idx);
-// fprintf(stdout,  "file_name [%s]\n", ctx->file_name);
+ fprintf(stdout,  "file_name [%s]\n", ctx->file_name);
               }
             }
 

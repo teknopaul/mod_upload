@@ -32,8 +32,9 @@ static int create_file(const char* dir, const char* overwrite, parse_ctx *ctx) {
 
 
 	char save_file[256];
+	save_file[0] = 0;
 	strcat(save_file, dir); // the path not the file name
-	strcat(save_file + strlen(dir), ctx->file_name);
+	strcat(save_file, ctx->file_name);
 
 	// open file to write
 	int flags = O_WRONLY;
@@ -47,11 +48,12 @@ static int create_file(const char* dir, const char* overwrite, parse_ctx *ctx) {
 	int outfd = open(save_file, flags);
 	
 	if (outfd == -1) {
-		fprintf(stderr, "Unable to open %s\n", save_file);
+		fprintf(stderr, "Unable to open \"%s\"\n", save_file);
 		return -1;
 	}
 	
-//	fprintf(stderr, "Opened %s for writing\n", save_file);
+	printf("file_name:%s\n", ctx->file_name);
+	printf("local_file:%s\n", save_file);
 
 	int *fd = malloc(sizeof(int));
 	if (fd == NULL) return -1;
