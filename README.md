@@ -23,8 +23,6 @@ Build is a bash script cgi.sh, it builds fine on my raspberry pi, should work on
 
 mod_jsonindex is like mod_index but instead of returning HTML it returns JSON.
 
-Not so FancyIndexing, more like SexyIndexing.
-
 Combining these two modules with a bit of static HTML, JQuery and some JavaScript and you have an HTTP fileserver.
 
 The project includes the static and the JavaScript and the Apache conf to set it up.
@@ -43,6 +41,8 @@ Please report bugs if you find them.
 mod_jsonindex is based on Core Apache code for mod_index so the same Apache 2 license applies to the code.
 The original authors are, Rob McCool and Martin Pool they deserve the credit any bugs are mine.
 
-mod_upload is GPL3, thats right the "viral" one that scares Micro$oft and 0racle, thus you must be open 
-with patches.  I don't want your money honey, I just want your pull request.
+mod_upload is GPL3.
+
+
+P.S. If you just need JSON indexes, nginx has this built in.
 
